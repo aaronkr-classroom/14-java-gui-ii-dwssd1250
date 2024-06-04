@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+
 
 public class Ex1404 extends JFrame {
 	
@@ -34,6 +36,7 @@ public class Ex1404 extends JFrame {
 		btnPanel.setLayout(new GridLayout(2, 2, 10, 5));
 		
 		add(btnPanel);
+		
 		JButton plus = new JButton("+");
 		btnPanel.add(plus);
 		JButton minus = new JButton("-");
@@ -52,6 +55,54 @@ public class Ex1404 extends JFrame {
 		JLabel lbl2 = new JLabel("");
 		resPanel.add(lbl2);
 		
+		//+ActionListener
+		plus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == plus) {
+					int num01 = Integer.parseInt(num1.getText());
+					int num02 = Integer.parseInt(num2.getText());
+					
+					int result = num01 + num02;
+					lbl2.setText(String.valueOf(result));
+				}
+			}
+		});
+		//-ActionListener
+		minus.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == minus) {
+					int num01 = Integer.parseInt(num1.getText());
+					int num02 = Integer.parseInt(num2.getText());
+					
+					int result = num01 - num02;
+					lbl2.setText(String.valueOf(result));
+				}
+			}
+		});
+		//*ActionListener
+		mult.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == mult) {
+					int num01 = Integer.parseInt(num1.getText());
+					int num02 = Integer.parseInt(num2.getText());
+					
+					int result = num01 * num02;
+					lbl2.setText(String.valueOf(result));
+				}
+			}
+		});
+		///ActionListener
+		div.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == div) {
+					int num01 = Integer.parseInt(num1.getText());
+					int num02 = Integer.parseInt(num2.getText());
+					
+					int result = num01 / num02;
+					lbl2.setText(String.valueOf(result));
+				}
+			}
+		});
 		// 프레임 설정
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(null);
